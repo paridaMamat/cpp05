@@ -6,7 +6,7 @@
 /*   By: pmaimait <pmaimait@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 14:15:31 by pmaimait          #+#    #+#             */
-/*   Updated: 2023/11/20 14:58:51 by pmaimait         ###   ########.fr       */
+/*   Updated: 2023/11/20 15:50:57 by pmaimait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ std::ostream &operator<<(std::ostream &out, Bureaucrat const &rhs)
 }
 
 
-void	Bureaucrat::signForm(Form &form)
+void	Bureaucrat::signForm(const Form &form)
 {
 	try
 	{
@@ -115,4 +115,18 @@ void	Bureaucrat::signForm(Form &form)
 		return ;
 	}
 	return ;
+}
+
+void    Bureaucrat::executeForm(const Form &form)
+{
+    try
+    {
+        form.execute(*this);
+        std::cout << this->getName() << " executed " << form.getName() << std::endl;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+    
 }

@@ -6,7 +6,7 @@
 /*   By: pmaimait <pmaimait@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 16:02:53 by pmaimait          #+#    #+#             */
-/*   Updated: 2023/11/20 14:59:12 by pmaimait         ###   ########.fr       */
+/*   Updated: 2023/11/20 15:51:39 by pmaimait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ Form::~Form()
     std::cout << "Form Destructor called" << std::endl;
 }
 
-std::string Form::getName()
+std::string Form::getName() const
 {
     return (_name);
 }
@@ -90,7 +90,16 @@ int	Form::testGrade(unsigned int grade) const
 	return (grade);
 }
 
-void    Form::beSigned(Bureaucrat &bureaucrat)
+// void    Form::formChecker(Bureaucrat &bureaucrat)
+// {
+//     if (_signed == true)
+//         throw (SignStatusException());
+//     if (_signGrade == 0 || _execGrade == 0)
+//         throw (GradeUnvailableException());
+//     if (bureaucrat.getGrade() > _signGrade)
+//         throw (Bureaucrat::GradeTooLowException());
+// }
+void    Form::beSigned(Bureaucrat &bureaucrat) const
 {
     if (this->_signGrade >= bureaucrat.getGrade())
 	{
@@ -100,6 +109,41 @@ void    Form::beSigned(Bureaucrat &bureaucrat)
 	
 }
 
+// void    Form::execChecker(const Bureaucrat &bureaucrat) const
+// {
+//     if (_signed == true)
+//         throw (SignStatusException());
+//     if (_signGrade == 0 || _execGrade == 0)
+//         throw (GradeUnvailableException());
+//     if (bureaucrat.getGrade() > _execGrade)
+//         throw (Bureaucrat::GradeTooLowException());
+// }
+
+// void    Form::beExec(Bureaucrat &bureaucrat)
+// {
+//     try
+//     {
+//         execChecker(bureaucrat);
+//     }
+//     catch(Bureaucrat::GradeTooLowException &e)
+//     {
+//         std::cerr << bureaucrat.getName() << "couldn't execute " << getName() << " because ";
+//         std::cerr << e.what() << '\n';
+//         return ;
+//     }
+//     catch(GradeUnvailableException &e)
+//     {
+//         std::cerr << bureaucrat.getName() << "couldn't execute " << getName() << " because ";
+//         std::cerr << e.what() << '\n';
+//         return ;
+//     }
+//     catch(NoSignStatusException &e)
+//     {
+//         std::cerr << bureaucrat.getName() << "couldn't execute " << getName() << " because ";
+//         std::cerr << e.what() << '\n';
+//         return ;
+//     }
+// }
 
 const char *Form::GradeTooHighException::what() const throw()
 {
@@ -110,6 +154,21 @@ const char *Form::GradeTooLowException::what() const throw()
 {
 	return ("Form grade is not correct ! He is too low !"); 
 }
+
+// const char *Form::GradeUnvailableException::what() const throw()
+// {
+// 	return ("Form grade is unvailable and he can't be used or signed!"); 
+// }
+
+// const char *Form::SignStatusException::what() const throw()
+// {
+// 	return ("Form is already Sign ! Don't need another Sign !"); 
+// }
+
+// const char *Form::NoSignStatusException::what() const throw()
+// {
+// 	return ("Form is not sign ! Can't use Form if he's not Sign !"); 
+// }
 
 std::ostream &operator<<(std::ostream &out, Form &f)
 {
