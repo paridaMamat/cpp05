@@ -6,59 +6,86 @@
 /*   By: pmaimait <pmaimait@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 12:48:37 by pmaimait          #+#    #+#             */
-/*   Updated: 2023/11/21 14:49:08 by pmaimait         ###   ########.fr       */
+/*   Updated: 2023/11/22 14:15:54 by pmaimait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/Bureaucrat.hpp"
-#include "../includes/ShrubberyCreationForm.hpp"
-#include "../includes/RobotomyRequestForm.hpp"
-#include "../includes/PresidentialPardonForm.hpp"
-#include "../includes/AForm.hpp"
+// #include "../includes/Bureaucrat.hpp"
+// #include "../includes/ShrubberyCreationForm.hpp"
+// #include "../includes/RobotomyRequestForm.hpp"
+// #include "../includes/PresidentialPardonForm.hpp"
+// #include "../includes/AForm.hpp"
+#include "../includes/Intern.hpp"
 
 
-int main()
+int    main(void)
 {
-	Bureaucrat a("a", 150);
-	Bureaucrat b("b", 1);
-	ShrubberyCreationForm c("czdhnzs");
-	RobotomyRequestForm d("d");
-	PresidentialPardonForm e("e");
-
-	std::cout << a << std::endl;
-	std::cout << b << std::endl;
-	std::cout << c << std::endl;
-	std::cout << d << std::endl;
-	std::cout << e << std::endl;
-	std::cout << std::endl;
-
-	a.signForm(c);
-	a.signForm(d);
-	a.signForm(e);
-	std::cout << a << std::endl;
-	std::cout << b << std::endl;
-	std::cout << c << std::endl;
-	std::cout << d << std::endl;
-	std::cout << e << std::endl;
-	std::cout << std::endl;
-
-	b.signForm(c);
-	b.signForm(d);
-	b.signForm(e);	
-	std::cout << a << std::endl;
-	std::cout << b << std::endl;
-	std::cout << c << std::endl;
-	std::cout << d << std::endl;
-	std::cout << e << std::endl;
-	std::cout << std::endl;
-
-	a.executeForm(c);
-	b.executeForm(c);
-	std::cout << std::endl;
-	a.executeForm(d);
-	b.executeForm(d);
-	std::cout << std::endl;
-	a.executeForm(e);
-	b.executeForm(e);
-	return (0);
+    try
+    {    
+        Intern         someRandomIntern;
+        Bureaucrat    bob("Bobo", 44);        
+        AForm         *form = NULL;
+        
+        form = someRandomIntern.makeForm("Robotomy Request", "Bender1");
+        bob.signForm(*form);
+        bob.executeForm(*form);
+        delete form;
+    }
+    catch (std::exception &e)
+    {
+        std::cout << e.what() << std::endl;
+    }
+    std::cout << std::endl;
+    
+    try
+    {
+        Intern         someRandomIntern;
+        Bureaucrat    bob("Bibi", 72);
+        AForm         *form;
+        
+        form = someRandomIntern.makeForm("Shrubbery Creation", "Bender2");
+        bob.signForm(*form);    
+        bob.executeForm(*form);
+        delete form;
+    }
+    catch (std::exception &e)
+    {
+        std::cout << e.what() << std::endl;
+    }
+    std::cout << std::endl;
+    
+    try
+    {
+        Intern         someRandomIntern;
+        Bureaucrat    bob("Bubu", 1);
+        AForm         *form;
+        
+        form = someRandomIntern.makeForm("Presidential Pardon", "Bender3");
+        bob.signForm(*form);    
+        bob.executeForm(*form);
+        delete form;
+    }
+    catch (std::exception &e)
+    {
+        std::cout << e.what() << std::endl;
+    }
+    std::cout << std::endl;
+    
+    try
+    {
+        Intern         someRandomIntern;
+        Bureaucrat    bob("Bebe", 144);        
+        AForm         *form;
+        
+        form = someRandomIntern.makeForm("Presidential Pardon", "Bender4");
+        bob.signForm(*form);    
+        bob.executeForm(*form);
+        delete form;
+    }
+    catch (std::exception &e)
+    {
+        std::cout << e.what() << std::endl;
+    }
+    std::cout << std::endl;
+    return 0;
 }

@@ -93,7 +93,7 @@ int	AForm::testGrade(unsigned int grade) const
 
 void    AForm::beSigned(Bureaucrat &bureaucrat) 
 {
-    if (this->_signGrade >= bureaucrat.getGrade())
+    if (this->getSignGrade()>= bureaucrat.getGrade())
 	{
 		 _signed = true;
 	}
