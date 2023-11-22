@@ -6,15 +6,10 @@
 /*   By: pmaimait <pmaimait@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 12:48:37 by pmaimait          #+#    #+#             */
-/*   Updated: 2023/11/22 14:15:54 by pmaimait         ###   ########.fr       */
+/*   Updated: 2023/11/22 15:13:06 by pmaimait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include "../includes/Bureaucrat.hpp"
-// #include "../includes/ShrubberyCreationForm.hpp"
-// #include "../includes/RobotomyRequestForm.hpp"
-// #include "../includes/PresidentialPardonForm.hpp"
-// #include "../includes/AForm.hpp"
 #include "../includes/Intern.hpp"
 
 
@@ -43,7 +38,7 @@ int    main(void)
         Bureaucrat    bob("Bibi", 72);
         AForm         *form;
         
-        form = someRandomIntern.makeForm("Shrubbery Creation", "Bender2");
+        form = someRandomIntern.makeForm("shrubbery creation", "Bender2");
         bob.signForm(*form);    
         bob.executeForm(*form);
         delete form;
@@ -60,7 +55,7 @@ int    main(void)
         Bureaucrat    bob("Bubu", 1);
         AForm         *form;
         
-        form = someRandomIntern.makeForm("Presidential Pardon", "Bender3");
+        form = someRandomIntern.makeForm("presidential pardon", "Bender3");
         bob.signForm(*form);    
         bob.executeForm(*form);
         delete form;
@@ -77,7 +72,7 @@ int    main(void)
         Bureaucrat    bob("Bebe", 144);        
         AForm         *form;
         
-        form = someRandomIntern.makeForm("Presidential Pardon", "Bender4");
+        form = someRandomIntern.makeForm("presidential pardon", "Bender4");
         bob.signForm(*form);    
         bob.executeForm(*form);
         delete form;

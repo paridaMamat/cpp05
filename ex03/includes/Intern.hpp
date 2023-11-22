@@ -6,7 +6,7 @@
 /*   By: pmaimait <pmaimait@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 09:55:16 by pmaimait          #+#    #+#             */
-/*   Updated: 2023/11/22 10:08:50 by pmaimait         ###   ########.fr       */
+/*   Updated: 2023/11/22 15:03:08 by pmaimait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,14 @@ class Intern
     ~Intern();
     
     AForm   *makeForm(std::string const form, std::string const target);
+    class NoExistingForm : public std::exception
+    {
+        public :
+        virtual const char *what() const throw()
+        {
+            return ("The requested form does not exist");
+        };
+    };
 };
 
 

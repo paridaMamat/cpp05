@@ -18,7 +18,7 @@ AForm::AForm() : _name("unamed"), _signGrade(160), _execGrade(160)
     std::cout << "AForm Default Constructor called" << std::endl;
 }
 
-AForm::AForm(std::string const name,  int const signGrade,  const int execGrade) : _name(name), _signGrade(testGrade(signGrade)), _execGrade(testGrade(execGrade))
+AForm::AForm(std::string const name,  int const signGrade,  const int execGrade) : _name(name), _signGrade(signGrade), _execGrade(execGrade)
 {
     _signed = false;
     std::cout << "AForm overload Constructor called" << std::endl;
@@ -93,7 +93,7 @@ int	AForm::testGrade(unsigned int grade) const
 
 void    AForm::beSigned(Bureaucrat &bureaucrat) 
 {
-    if (this->getSignGrade()>= bureaucrat.getGrade())
+    if (this->_signGrade>= bureaucrat.getGrade())
 	{
 		 _signed = true;
 	}
@@ -101,6 +101,15 @@ void    AForm::beSigned(Bureaucrat &bureaucrat)
 	
 }
 
+/* void    AForm::beSigned(Bureaucrat &b)
+{
+    if (b.getGrade() <= getSignGrade())
+        setSigned(1);
+    else
+    {
+        throw AForm::GradeTooLowException();
+    }
+} */
 
 void AForm::checkExec(const Bureaucrat &b) const
 {

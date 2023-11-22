@@ -50,7 +50,7 @@ class AForm
     class ThisIsNotSignedException : public std::exception
     {
         public :
-        const char *what() const throw();
+       virtual const char *what() const throw();
     };
 
     class GradeTooHighException : public std::exception

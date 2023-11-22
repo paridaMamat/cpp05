@@ -6,7 +6,7 @@
 /*   By: pmaimait <pmaimait@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 14:15:31 by pmaimait          #+#    #+#             */
-/*   Updated: 2023/11/16 14:41:34 by pmaimait         ###   ########.fr       */
+/*   Updated: 2023/11/22 16:09:08 by pmaimait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int Bureaucrat::checkGrade(int grade) const
     catch(const GradeTooHightException& e)
     {
         std::cerr << e.what() << '\n';
-         return (_grade == 1) ? 1 : 150;
+        return (_grade == 1) ? 1 : 150;
     }
     catch (const GradeTooLowException &e)
     {

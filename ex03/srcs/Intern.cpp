@@ -6,7 +6,7 @@
 /*   By: pmaimait <pmaimait@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 10:09:05 by pmaimait          #+#    #+#             */
-/*   Updated: 2023/11/22 12:21:37 by pmaimait         ###   ########.fr       */
+/*   Updated: 2023/11/22 15:12:33 by pmaimait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,6 @@ AForm *Intern::makeForm(std::string const form, std::string const target)
             std::cout << "Intern creates " << name[n] << " form." << std::endl;
             return (new ShrubberyCreationForm(target));
         default :
-        {
-            std::cout << "This Form name does not exist." << std::endl;
-            return (0);
-        }
+            throw NoExistingForm ();
     }
 }

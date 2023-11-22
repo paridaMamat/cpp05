@@ -6,7 +6,7 @@
 /*   By: pmaimait <pmaimait@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 16:02:53 by pmaimait          #+#    #+#             */
-/*   Updated: 2023/11/20 14:59:12 by pmaimait         ###   ########.fr       */
+/*   Updated: 2023/11/22 15:24:42 by pmaimait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ Form::Form() : _name("unamed"), _signGrade(160), _execGrade(160)
     std::cout << "Form Default Constructor called" << std::endl;
 }
 
-Form::Form(std::string const name,  int const signGrade,  const int execGrade) : _name(name), _signGrade(testGrade(signGrade)), _execGrade(testGrade(execGrade))
+Form::Form(std::string const name,  int const signGrade,  const int execGrade) : _name(name), _signGrade(signGrade), _execGrade(execGrade)
 {
     _signed = false;
     std::cout << "Form overload Constructor called" << std::endl;
