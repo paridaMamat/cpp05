@@ -6,7 +6,7 @@
 /*   By: pmaimait <pmaimait@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 15:12:26 by pmaimait          #+#    #+#             */
-/*   Updated: 2023/11/20 14:58:42 by pmaimait         ###   ########.fr       */
+/*   Updated: 2023/11/23 17:36:08 by pmaimait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,20 @@
 #include <iostream>
 #include "Bureaucrat.hpp"
 
+#define ANSI_COLOR_GREEN "\033[1;32m"
+#define ANSI_COLOR_ORANGE "\033[1;33m"
+#define ANSI_COLOR_RESET "\033[0m"
+
 class Bureaucrat;
 
 class Form
 {
     private :
 
-    std::string   _name;
+    const std::string   _name;
     bool          _signed;
-    int    _signGrade;
-    int    _execGrade;
+    const int    _signGrade;
+    const int    _execGrade;
     Form();
 
     public :
@@ -35,7 +39,7 @@ class Form
     Form &operator=(Form const &boj);
     ~Form();
 
-    std::string getName();
+    std::string getName() const;
     int     getSignGrade() const;
     int     getExecGrade() const;
     bool    getSigned() const;

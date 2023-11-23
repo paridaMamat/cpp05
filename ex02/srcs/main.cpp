@@ -6,7 +6,7 @@
 /*   By: pmaimait <pmaimait@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 12:48:37 by pmaimait          #+#    #+#             */
-/*   Updated: 2023/11/21 14:49:08 by pmaimait         ###   ########.fr       */
+/*   Updated: 2023/11/23 16:10:25 by pmaimait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int main()
 {
 	Bureaucrat a("a", 150);
 	Bureaucrat b("b", 1);
-	ShrubberyCreationForm c("czdhnzs");
+	ShrubberyCreationForm c("c");
 	RobotomyRequestForm d("d");
 	PresidentialPardonForm e("e");
 
@@ -35,11 +35,6 @@ int main()
 	a.signForm(c);
 	a.signForm(d);
 	a.signForm(e);
-	std::cout << a << std::endl;
-	std::cout << b << std::endl;
-	std::cout << c << std::endl;
-	std::cout << d << std::endl;
-	std::cout << e << std::endl;
 	std::cout << std::endl;
 
 	b.signForm(c);

@@ -16,16 +16,20 @@
 #include <iostream>
 #include "Bureaucrat.hpp"
 
+#define ANSI_COLOR_GREEN "\033[1;32m"
+#define ANSI_COLOR_ORANGE "\033[1;33m"
+#define ANSI_COLOR_RESET "\033[0m"
+
 class Bureaucrat;
 
 class AForm
 {
     private :
 
-    std::string   _name;
+    const std::string   _name;
     bool          _signed;
-    int    _signGrade;
-    int    _execGrade;
+    const int    _signGrade;
+    const int    _execGrade;
     AForm();
 
     public :

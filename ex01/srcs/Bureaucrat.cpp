@@ -6,7 +6,7 @@
 /*   By: pmaimait <pmaimait@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 14:15:31 by pmaimait          #+#    #+#             */
-/*   Updated: 2023/11/20 14:58:51 by pmaimait         ###   ########.fr       */
+/*   Updated: 2023/11/23 11:21:16 by pmaimait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int Bureaucrat::checkGrade(int grade) const
     catch(const GradeTooHightException& e)
     {
         std::cerr << e.what() << '\n';
-         return (_grade == 1) ? 1 : 150;
+         return (1);
     }
     catch (const GradeTooLowException &e)
     {
@@ -108,7 +108,7 @@ void	Bureaucrat::signForm(Form &form)
 		form.beSigned(*this);
 		std::cout << this->getName() << " signed " << form.getName() << "." <<std::endl;
 	}
-	catch (GradeTooLowException &e)
+	catch (Form::GradeTooLowException &e)
 	{
 		std::cerr << this->getName() << " couldn’t sign " << form.getName() << " because ";
 		std::cerr << e.what() << std::endl;

@@ -6,7 +6,7 @@
 /*   By: pmaimait <pmaimait@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 09:59:19 by pmaimait          #+#    #+#             */
-/*   Updated: 2023/11/21 14:44:39 by pmaimait         ###   ########.fr       */
+/*   Updated: 2023/11/23 15:26:20 by pmaimait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,6 @@ void    ShrubberyCreationForm::execute(const Bureaucrat &b) const{
     file << contents;
     file.close();
 
-    std::cout << "our tree already in the " << fileName << std::endl;
+    std::cout << ANSI_COLOR_ORANGE << "our tree already in the " << fileName << ANSI_COLOR_RESET << std::endl;
     
 }

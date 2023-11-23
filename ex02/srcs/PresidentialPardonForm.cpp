@@ -6,7 +6,7 @@
 /*   By: pmaimait <pmaimait@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 09:59:11 by pmaimait          #+#    #+#             */
-/*   Updated: 2023/11/21 11:49:31 by pmaimait         ###   ########.fr       */
+/*   Updated: 2023/11/23 15:21:05 by pmaimait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,5 @@ PresidentialPardonForm::~PresidentialPardonForm(){}
 
 void    PresidentialPardonForm::execute(const Bureaucrat &b) const{
     checkExec(b);
-    std::cout << getName() << " was pardoned by President. " << std::endl;
+    std::cout << ANSI_COLOR_ORANGE << getName() << " has been pardoned by Zaphod Beeblebrox" << ANSI_COLOR_RESET << std::endl;
 }

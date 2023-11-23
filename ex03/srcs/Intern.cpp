@@ -6,7 +6,7 @@
 /*   By: pmaimait <pmaimait@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 10:09:05 by pmaimait          #+#    #+#             */
-/*   Updated: 2023/11/22 15:12:33 by pmaimait         ###   ########.fr       */
+/*   Updated: 2023/11/23 16:46:39 by pmaimait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,17 +45,21 @@ AForm *Intern::makeForm(std::string const form, std::string const target)
     }
     switch(n)
     {
-        // std::cout << "Intern creates " << name[n] << " form." << std::endl;
+        
         case PRESIDENTIAL:
-            std::cout << "Intern creates " << name[n] << " form." << std::endl;
-            return (new ShrubberyCreationForm(target));
+            std::cout << "Intern creates " << name[PRESIDENTIAL] << " form." << std::endl;
+            return (new PresidentialPardonForm(target));
         case ROBOTOMY :
-            std::cout << "Intern creates " << name[n] << " form." << std::endl;
+            std::cout << "Intern creates " << name[ROBOTOMY] << " form." << std::endl;
             return (new RobotomyRequestForm(target));
         case SHRUBBERY :
-            std::cout << "Intern creates " << name[n] << " form." << std::endl;
+            std::cout << "Intern creates " << name[SHRUBBERY] << " form." << std::endl;
             return (new ShrubberyCreationForm(target));
         default :
-            throw NoExistingForm ();
+             throw NoExistingForm();
+		// {
+		// 	std::cout << "This Form Name don't match with any Form on the current list !" << std::endl;
+		// 	return (0);
+		// }
     }
 }

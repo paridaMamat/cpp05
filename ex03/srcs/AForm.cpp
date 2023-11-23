@@ -12,30 +12,27 @@
 
 #include "../includes/AForm.hpp"
 
-AForm::AForm() : _name("unamed"), _signGrade(160), _execGrade(160)
+AForm::AForm() : _name("unamed"), _signGrade(150), _execGrade(150)
 {
     _signed = false;
     std::cout << "AForm Default Constructor called" << std::endl;
 }
 
-AForm::AForm(std::string const name,  int const signGrade,  const int execGrade) : _name(name), _signGrade(signGrade), _execGrade(execGrade)
+AForm::AForm(std::string const name,  int const signGrade,  const int execGrade) : _name(name), _signGrade(testGrade(signGrade)), _execGrade(testGrade(execGrade))
 {
     _signed = false;
     std::cout << "AForm overload Constructor called" << std::endl;
 }
 
-AForm::AForm(AForm const &obj)
+AForm::AForm(AForm const &obj) : _name(obj._name), _signGrade(obj._signGrade), _execGrade(obj._execGrade)
 {
     std::cout << "AForm copy Constructor called" << std::endl;
     *this = obj;
 }
-AForm &AForm::operator=(const AForm &obj)
+AForm &AForm::operator=(const AForm &obj) 
 {
     std::cout << "AForm copy assignment operator called" << std::endl;
-    _name = obj._name;
-    _signGrade = obj._signGrade;
-    _execGrade = obj._execGrade;
-    _signed = false;
+    _signed = obj._signed;
     return *this;
 }
 
@@ -80,12 +77,12 @@ int	AForm::testGrade(unsigned int grade) const
 	catch (GradeTooHighException &e)
 	{
 		std::cerr << e.what() << std::endl;
-		return (0);
+		return (1);
 	}
 	catch (GradeTooLowException &e)
 	{
 		std::cerr << e.what() << std::endl;
-		return (0);
+		return (150);
 	}
 	return (grade);
 }
@@ -93,23 +90,11 @@ int	AForm::testGrade(unsigned int grade) const
 
 void    AForm::beSigned(Bureaucrat &bureaucrat) 
 {
-    if (this->_signGrade>= bureaucrat.getGrade())
-	{
-		 _signed = true;
-	}
-    throw Bureaucrat::GradeTooLowException();
-	
+    if (this->_signGrade <= bureaucrat.getGrade())
+		throw AForm::GradeTooLowException();
+	 _signed = true;
 }
 
-/* void    AForm::beSigned(Bureaucrat &b)
-{
-    if (b.getGrade() <= getSignGrade())
-        setSigned(1);
-    else
-    {
-        throw AForm::GradeTooLowException();
-    }
-} */
 
 void AForm::checkExec(const Bureaucrat &b) const
 {
@@ -119,7 +104,7 @@ void AForm::checkExec(const Bureaucrat &b) const
 
 void 	AForm::setName(std::string name)
 {
-	_name = name;
+	const_cast<std::string&>(this->_name) = name;
 }
 
 void	AForm::setSigned(bool b)
@@ -129,12 +114,12 @@ void	AForm::setSigned(bool b)
 
 const char *AForm::GradeTooHighException::what() const throw()
 {
-	return ("AForm grade is not correct ! He is too high !");
+	return ("grade is not correct ! He is too high !");
 }
 
 const char *AForm::GradeTooLowException::what() const throw()
 {
-	return ("AForm grade is not correct ! He is too low !"); 
+	return ("grade is not correct ! He is too low !"); 
 }
 const char *AForm::ThisIsNotSignedException::what() const throw(){
 	return ("this is not signed, so we can't do this anymore....");
@@ -142,11 +127,16 @@ const char *AForm::ThisIsNotSignedException::what() const throw(){
 
 std::ostream &operator<<(std::ostream &out, AForm &f)
 {
-	out << "AForm name " << f.getName() << " can be sign with grade " << f.getSignGrade();
-	out << ", execute with grade " << f.getExecGrade() << " and sign status is ";
-	if (f.getSigned() == false)
-		out << "unsigned!";
-	else
-		out << "signed!";
-	return out;
+    out << ANSI_COLOR_GREEN << "Form " << f.getName() << " signGrade is " << f.getSignGrade();
+    out << ", executeGrade is " << f.getExecGrade() << " and sign status is ";
+
+    if (f.getSigned() == false)
+        out << "unsigned!";
+    else
+        out << "signed!";
+
+    out << ANSI_COLOR_RESET; // Reset color after printing
+
+    return out;
 }
+

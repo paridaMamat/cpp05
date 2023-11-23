@@ -6,7 +6,7 @@
 /*   By: pmaimait <pmaimait@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 12:48:37 by pmaimait          #+#    #+#             */
-/*   Updated: 2023/11/22 15:13:06 by pmaimait         ###   ########.fr       */
+/*   Updated: 2023/11/23 16:49:31 by pmaimait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,71 +16,59 @@
 int    main(void)
 {
     try
-    {    
-        Intern         someRandomIntern;
-        Bureaucrat    bob("Bobo", 44);        
-        AForm         *form = NULL;
-        
-        form = someRandomIntern.makeForm("Robotomy Request", "Bender1");
-        bob.signForm(*form);
-        bob.executeForm(*form);
-        delete form;
+    {
+        Intern  someRandomIntern;
+        AForm*   rrf;
+
+        rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+        std::cout << *rrf << std::endl;
+        delete rrf;
     }
     catch (std::exception &e)
     {
-        std::cout << e.what() << std::endl;
+        std::cout << e.what();
     }
-    std::cout << std::endl;
-    
+    std::cout << "###########################################" << std::endl;
+    try 
+    {
+        Intern  hferjani;
+        AForm*  FCR;
+        
+        FCR = hferjani.makeForm("shrubbery creation", "home");
+        std::cout << *FCR << std::endl;
+        delete FCR;
+    }
+    catch (std::exception &e)
+    {
+        std::cout << e.what();
+    }
+    std::cout << "###########################################" << std::endl;
     try
     {
-        Intern         someRandomIntern;
-        Bureaucrat    bob("Bibi", 72);
-        AForm         *form;
+        Intern bestIntern;
+        AForm*  UB40;
         
-        form = someRandomIntern.makeForm("shrubbery creation", "Bender2");
-        bob.signForm(*form);    
-        bob.executeForm(*form);
-        delete form;
+        UB40 = bestIntern.makeForm("presidential pardon", "white house");
+        std::cout << *UB40 << std::endl;
+        delete UB40;
     }
     catch (std::exception &e)
     {
-        std::cout << e.what() << std::endl;
+        std::cout << e.what();
     }
-    std::cout << std::endl;
-    
+    std::cout << "###########################################" << std::endl;
     try
     {
-        Intern         someRandomIntern;
-        Bureaucrat    bob("Bubu", 1);
-        AForm         *form;
-        
-        form = someRandomIntern.makeForm("presidential pardon", "Bender3");
-        bob.signForm(*form);    
-        bob.executeForm(*form);
-        delete form;
+        Intern badIntern;
+        AForm*  badForm;
+
+        badForm = badIntern.makeForm("bad form", "bad target");
+        std::cout << "we display something here but he can't , because it already catch something";
+        std::cout << *badForm << std::endl;
+        delete badForm;
     }
     catch (std::exception &e)
     {
-        std::cout << e.what() << std::endl;
+        std::cout << e.what();
     }
-    std::cout << std::endl;
-    
-    try
-    {
-        Intern         someRandomIntern;
-        Bureaucrat    bob("Bebe", 144);        
-        AForm         *form;
-        
-        form = someRandomIntern.makeForm("presidential pardon", "Bender4");
-        bob.signForm(*form);    
-        bob.executeForm(*form);
-        delete form;
-    }
-    catch (std::exception &e)
-    {
-        std::cout << e.what() << std::endl;
-    }
-    std::cout << std::endl;
-    return 0;
 }

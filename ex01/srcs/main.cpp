@@ -6,7 +6,7 @@
 /*   By: pmaimait <pmaimait@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 12:48:37 by pmaimait          #+#    #+#             */
-/*   Updated: 2023/11/20 14:59:21 by pmaimait         ###   ########.fr       */
+/*   Updated: 2023/11/23 17:27:09 by pmaimait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 int main()
 {
-	Bureaucrat test("Louis", 1); // HIGH LEVEL
+	Bureaucrat test("Louis", -1); // HIGH LEVEL
 
 	std::cout << test << std::endl;
 
@@ -97,34 +97,29 @@ int main()
 
 	std::cout << "###########################################" << std::endl;
 	std::cout << "###########################################" << std::endl;
-	try
-	{
-		Bureaucrat a("a", 150);
-		Bureaucrat b("b", 1);
-		Form c("c", 50, 50);
+	
+	Bureaucrat a("a", 150);
+	Bureaucrat b("b", 1);
+	Form c("c", 50, 50);
 
-		std::cout << a << std::endl;
-		std::cout << b << std::endl;
-		std::cout << c << std::endl;
-		std::cout << std::endl;
+	std::cout << a << std::endl;
+	std::cout << b << std::endl;
+	std::cout << c << std::endl;
+	std::cout << std::endl;
 
-		a.signForm(c);
-		std::cout << a << std::endl;
-		std::cout << b << std::endl;
-		std::cout << c << std::endl;
-		std::cout << std::endl;
+	a.signForm(c);
+	std::cout << a << std::endl;
+	std::cout << b << std::endl;
+	std::cout << c << std::endl;
+	std::cout << std::endl;
 
-		b.signForm(c);
-		
-		std::cout << a << std::endl;
-		std::cout << b << std::endl;
-		std::cout << c << std::endl;
-		std::cout << std::endl;	
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
+	b.signForm(c);
+	
+	std::cout << a << std::endl;
+	std::cout << b << std::endl;
+	std::cout << c << std::endl;
+	std::cout << std::endl;	
+	
 
 	return (0);
 }

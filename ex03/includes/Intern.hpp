@@ -6,7 +6,7 @@
 /*   By: pmaimait <pmaimait@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 09:55:16 by pmaimait          #+#    #+#             */
-/*   Updated: 2023/11/22 15:03:08 by pmaimait         ###   ########.fr       */
+/*   Updated: 2023/11/23 16:47:49 by pmaimait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,10 @@ class Intern
     class NoExistingForm : public std::exception
     {
         public :
-        virtual const char *what() const throw()
-        {
-            return ("The requested form does not exist");
-        };
+            const char *what() const throw()
+            {       
+                return ("The requested form does not exist\n");
+            }
     };
 };
 
