@@ -6,7 +6,7 @@
 /*   By: pmaimait <pmaimait@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 12:48:37 by pmaimait          #+#    #+#             */
-/*   Updated: 2023/11/23 12:13:12 by pmaimait         ###   ########.fr       */
+/*   Updated: 2023/11/24 10:13:24 by pmaimait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int main()
 {
-    Bureaucrat test("Louis", 1);
+    Bureaucrat test("Louis", -1);
 
 	std::cout << test << std::endl;
 

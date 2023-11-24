@@ -6,7 +6,7 @@
 /*   By: pmaimait <pmaimait@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 15:12:26 by pmaimait          #+#    #+#             */
-/*   Updated: 2023/11/23 17:36:08 by pmaimait         ###   ########.fr       */
+/*   Updated: 2023/11/24 11:26:36 by pmaimait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,12 @@ class Form
         public :
         const char *what() const throw();
     };
+    
+    class SignStatusException : public std::exception
+	{
+		public:
+			const char *what() const throw();
+	};
 };
 
 std::ostream &operator<<(std::ostream &out, Form  &rhs);

@@ -6,7 +6,7 @@
 /*   By: pmaimait <pmaimait@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 14:15:31 by pmaimait          #+#    #+#             */
-/*   Updated: 2023/11/23 11:21:16 by pmaimait         ###   ########.fr       */
+/*   Updated: 2023/11/24 11:57:52 by pmaimait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ Bureaucrat::Bureaucrat(std::string const name, int grade) : _name(name), _grade(
     return;    
 }
 
-Bureaucrat::Bureaucrat(Bureaucrat const &obj)
+Bureaucrat::Bureaucrat(Bureaucrat const &obj): _name(obj._name)
 {
     std::cout << "Bureaucrat copy Constructor called" << std::endl;
     *this = obj;
@@ -33,7 +33,6 @@ Bureaucrat::Bureaucrat(Bureaucrat const &obj)
 Bureaucrat &Bureaucrat::operator=(Bureaucrat const &obj)
 {
     std::cout << "Bureaucrat Copy assignment operator called" << std::endl;
-    _name = obj._name;
     _grade = obj._grade;
     return *this;
 }
@@ -109,6 +108,12 @@ void	Bureaucrat::signForm(Form &form)
 		std::cout << this->getName() << " signed " << form.getName() << "." <<std::endl;
 	}
 	catch (Form::GradeTooLowException &e)
+	{
+		std::cerr << this->getName() << " couldn’t sign " << form.getName() << " because ";
+		std::cerr << e.what() << std::endl;
+		return ;
+	}
+    catch (Form::SignStatusException &e)
 	{
 		std::cerr << this->getName() << " couldn’t sign " << form.getName() << " because ";
 		std::cerr << e.what() << std::endl;

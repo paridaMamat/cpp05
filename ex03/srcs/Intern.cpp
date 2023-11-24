@@ -6,7 +6,7 @@
 /*   By: pmaimait <pmaimait@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 10:09:05 by pmaimait          #+#    #+#             */
-/*   Updated: 2023/11/23 16:46:39 by pmaimait         ###   ########.fr       */
+/*   Updated: 2023/11/24 12:26:41 by pmaimait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ AForm *Intern::makeForm(std::string const form, std::string const target)
     }
     switch(n)
     {
-        
         case PRESIDENTIAL:
             std::cout << "Intern creates " << name[PRESIDENTIAL] << " form." << std::endl;
             return (new PresidentialPardonForm(target));
@@ -57,9 +56,5 @@ AForm *Intern::makeForm(std::string const form, std::string const target)
             return (new ShrubberyCreationForm(target));
         default :
              throw NoExistingForm();
-		// {
-		// 	std::cout << "This Form Name don't match with any Form on the current list !" << std::endl;
-		// 	return (0);
-		// }
     }
 }

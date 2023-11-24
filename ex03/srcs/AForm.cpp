@@ -92,6 +92,8 @@ void    AForm::beSigned(Bureaucrat &bureaucrat)
 {
     if (this->_signGrade <= bureaucrat.getGrade())
 		throw AForm::GradeTooLowException();
+	if (this->getSigned() == true)
+		throw (AForm::SignStatusException());
 	 _signed = true;
 }
 
@@ -122,9 +124,13 @@ const char *AForm::GradeTooLowException::what() const throw()
 	return ("grade is not correct ! He is too low !"); 
 }
 const char *AForm::ThisIsNotSignedException::what() const throw(){
-	return ("this is not signed, so we can't do this anymore....");
+	return ("this is not signed !");
 }
 
+const char *AForm::SignStatusException::what() const throw()
+{
+	return ("Form is already Signed !"); 
+}
 std::ostream &operator<<(std::ostream &out, AForm &f)
 {
     out << ANSI_COLOR_GREEN << "Form " << f.getName() << " signGrade is " << f.getSignGrade();

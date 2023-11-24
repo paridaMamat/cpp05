@@ -6,7 +6,7 @@
 /*   By: pmaimait <pmaimait@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 13:22:37 by pmaimait          #+#    #+#             */
-/*   Updated: 2023/11/20 14:58:28 by pmaimait         ###   ########.fr       */
+/*   Updated: 2023/11/24 11:56:58 by pmaimait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ class Form;
 class Bureaucrat 
 {
     private :
-    std::string _name;
+    const std::string _name;
     int _grade;
     Bureaucrat();
 
